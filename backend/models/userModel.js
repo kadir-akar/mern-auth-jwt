@@ -5,16 +5,18 @@ const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      require: true,
     },
     email: {
       type: String,
-      required: true,
+      require: true,
       unique: true,
+      match: [/\S+@\S+\.\S+/, "is invalid"],
     },
     password: {
       type: String,
-      required: true,
+      require: true,
+      minlength: 6,
     },
   },
   {
